@@ -20,7 +20,6 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(
-  //inherenrtly identify google
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
@@ -31,9 +30,9 @@ passport.use(
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
       if (existingUser) {
-        return done(null, existingUser);
+        return done(null, existingUser);//no error
       }
-        const user = await new User({ googleId: profile.id }).save();
+        const user = await new User({ googleId: profile.id }).save();//Create a new model instance
         done(null, user); //take model instance and save in db
     }
   )

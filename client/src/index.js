@@ -1,4 +1,5 @@
-import materializeCSS from 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/css/materialize.min.css';
+//webpack assume the path as an action of importing a NPM module
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
